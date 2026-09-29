@@ -71,6 +71,42 @@
   .hero .hmeta b{color:#fff;font-weight:600}
   .gold-i{color:var(--gold)}
 
+  /* ---- animated hero ---- */
+  .hero-bg{will-change:transform;animation:kenburns 28s ease-in-out infinite alternate}
+  @keyframes kenburns{0%{transform:scale(1.06)}100%{transform:scale(1.17) translate3d(-1.5%,-2.5%,0)}}
+  .hero-glow{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:screen;
+    background:radial-gradient(52% 42% at 22% 32%,rgba(200,162,74,.28),rgba(200,162,74,0) 70%);
+    animation:glowdrift 17s ease-in-out infinite alternate}
+  @keyframes glowdrift{0%{transform:translate3d(0,0,0);opacity:.65}100%{transform:translate3d(14%,10%,0);opacity:1}}
+  .hero-vig{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(120% 120% at 50% 30%,rgba(0,0,0,0) 55%,rgba(0,0,0,.5) 100%)}
+  /* staggered entrance */
+  .h-anim{opacity:0;animation:heroUp 1s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes heroUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  .hero .pill.h-anim{animation-delay:.15s}
+  .hero .tag.h-anim{animation-delay:.5s}
+  .hero .hsub.h-anim{animation-delay:.66s}
+  .hero .cta-row.h-anim{animation-delay:.82s}
+  .hero .hmeta.h-anim{animation-delay:.98s}
+  /* wordmark: entrance + slow gold shimmer sweep */
+  .hero h1{color:#fff;background:linear-gradient(100deg,#fff 38%,var(--gold2) 50%,#fff 62%);
+    background-size:230% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    animation:heroUp 1s cubic-bezier(.2,.7,.2,1) .3s both, shine 7s ease-in-out 1.4s infinite}
+  @keyframes shine{0%,100%{background-position:160% 0}50%{background-position:-40% 0}}
+  /* scroll cue */
+  .hero-scroll{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;
+    align-items:center;gap:8px;color:#e9e9ee;opacity:0;animation:heroUp 1s ease 1.5s both}
+  .hero-scroll .txt{font-size:10.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#c7c7cf}
+  .hero-scroll .mouse{width:22px;height:34px;border:1.5px solid rgba(255,255,255,.45);border-radius:12px;position:relative}
+  .hero-scroll .mouse:before{content:'';position:absolute;left:50%;top:6px;width:3px;height:7px;border-radius:2px;
+    background:var(--gold2);transform:translateX(-50%);animation:wheel 1.8s ease-in-out infinite}
+  @keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translate(-50%,10px)}}
+  @media(prefers-reduced-motion:reduce){
+    .hero-bg,.hero-glow,.hero h1,.hero-scroll .mouse:before{animation:none}
+    .h-anim,.hero h1,.hero-scroll{opacity:1;animation:none;transform:none}
+    .hero h1{-webkit-text-fill-color:#fff;color:#fff}
+  }
+
   .sec{padding:96px 0}
   .sec-head{text-align:center;max-width:680px;margin:0 auto 54px}
   .sec-head .lead{margin:16px auto 0}
@@ -226,21 +262,24 @@
 
 <header class="hero" id="top">
   <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-vig"></div>
   <div class="wrap hero-in">
-    <div class="pill"><span class="dot"></span><span data-i18n="hero.pill">Neu eröffnet · Ohne Termin</span></div>
+    <div class="pill h-anim"><span class="dot"></span><span data-i18n="hero.pill">Neu eröffnet · Ohne Termin</span></div>
     <h1>KAMI'S CUT</h1>
-    <div class="tag" data-i18n="hero.tag">Barber deines Vertrauens</div>
-    <p class="hsub" data-i18n="hero.sub">Moderner Barbershop an der Dasselstraße. Präzise Haarschnitte, saubere Fades, Bartpflege und klassische Rasur — in einem stylischen Studio mitten in Köln.</p>
-    <div class="cta-row">
+    <div class="tag h-anim" data-i18n="hero.tag">Barber deines Vertrauens</div>
+    <p class="hsub h-anim" data-i18n="hero.sub">Moderner Barbershop an der Dasselstraße. Präzise Haarschnitte, saubere Fades, Bartpflege und klassische Rasur — in einem stylischen Studio mitten in Köln.</p>
+    <div class="cta-row h-anim">
       <a class="btn btn-gold" href="https://wa.me/4917662082034" target="_blank" rel="noopener"><span data-i18n="hero.btnwa">💈 Schreib uns auf WhatsApp</span></a>
       <a class="btn btn-out" href="tel:+4917662082034"><span data-i18n="hero.btncall">Anrufen: 0176 62082034</span></a>
     </div>
-    <div class="hmeta">
+    <div class="hmeta h-anim">
       <span><b class="gold-i">◷</b>&nbsp;<b data-i18n="hero.m1">Mo–Fr 9–19 Uhr</b></span>
       <span><b class="gold-i">⚲</b>&nbsp;<span data-i18n="hero.m2">Dasselstraße 70, Köln</span></span>
       <span><b class="gold-i">✓</b>&nbsp;<span data-i18n="hero.m3">Ohne Termin — einfach vorbeikommen</span></span>
     </div>
   </div>
+  <div class="hero-scroll" aria-hidden="true"><div class="mouse"></div><div class="txt" data-i18n="hero.scroll">Scroll</div></div>
 </header>
 
 <section class="sec" id="about">
@@ -421,7 +460,7 @@ const I18N = {
     "contact.reach":"In the Neustadt · easy by tram, bus & on foot","contact.phone":"Phone / WhatsApp","contact.email":"Email",
     "hours.mf":"Monday – Friday","hours.sa":"Saturday","hours.sa.v":"by appointment","hours.su":"Sunday","hours.su.v":"closed","contact.call":"Call",
     "footer.tag":"The barber you can trust","footer.menu":"Menu","footer.contact":"Contact","footer.hours":"Opening hours",
-    "footer.hoursval":"Mon–Fri: 9:00–19:00<br>Sat: 9:00–18:00<br>Sun: closed","footer.city":"Barbershop Köln"
+    "footer.hoursval":"Mon–Fri: 9:00–19:00<br>Sat: 9:00–18:00<br>Sun: closed","footer.city":"Barbershop Köln","hero.scroll":"Scroll"
   },
   ar:{
     "nav.about":"من نحن","nav.services":"الخدمات","nav.gallery":"المعرض","nav.contact":"تواصل","nav.cta":"راسلنا على واتساب",
@@ -446,7 +485,7 @@ const I18N = {
     "contact.reach":"في وسط نويشتات · يسهل الوصول بالترام والحافلة وسيراً","contact.phone":"الهاتف / واتساب","contact.email":"البريد الإلكتروني",
     "hours.mf":"الاثنين – الجمعة","hours.sa":"السبت","hours.sa.v":"بموعد مسبق","hours.su":"الأحد","hours.su.v":"مغلق","contact.call":"اتصل",
     "footer.tag":"حلاقك الموثوق","footer.menu":"القائمة","footer.contact":"تواصل","footer.hours":"ساعات العمل",
-    "footer.hoursval":"الاثنين–الجمعة: ٩:٠٠–١٩:٠٠<br>السبت: ٩:٠٠–١٨:٠٠<br>الأحد: مغلق","footer.city":"صالون حلاقة كولونيا"
+    "footer.hoursval":"الاثنين–الجمعة: ٩:٠٠–١٩:٠٠<br>السبت: ٩:٠٠–١٨:٠٠<br>الأحد: مغلق","footer.city":"صالون حلاقة كولونيا","hero.scroll":"مرّر"
   }
 };
 // capture German defaults from the DOM
