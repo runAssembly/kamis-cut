@@ -4,13 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kami's Cut — Barbershop in Köln | Dasselstraße 70</title>
-<meta name="description" content="Kami's Cut — moderner Barbershop in der Kölner Neustadt. Präzise Haarschnitte, Bartpflege & klassische Rasur. Dasselstraße 70, 50674 Köln. Mo–Fr 9–19 Uhr. Termin per WhatsApp.">
-<meta property="og:title" content="Kami's Cut — Barber deines Vertrauens">
-<meta property="og:description" content="Moderner Barbershop in Köln. Haarschnitt, Bart & Rasur. Dasselstraße 70. Mo–Fr 9–19 Uhr.">
-<meta property="og:type" content="business.business">
+<meta name="description" content="Kami's Cut — moderner Barbershop in der Kölner Neustadt. Präzise Haarschnitte, Bartpflege & klassische Rasur. Dasselstraße 70, 50674 Köln. Mo–Fr 9–19 Uhr.">
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+<link rel="apple-touch-icon" href="assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0d0d0f; --bg2:#141417; --paper:#faf8f4; --paper2:#f1ece3;
@@ -31,7 +30,6 @@
   h2.title{font-family:var(--disp);font-size:clamp(38px,6vw,66px);line-height:.98;letter-spacing:.01em;text-transform:uppercase}
   .lead{font-size:17px;color:#4a4a52;max-width:620px;line-height:1.7}
 
-  /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(13,13,15,.72);backdrop-filter:blur(12px);
     border-bottom:1px solid var(--line);transition:background .3s}
   .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
@@ -48,13 +46,14 @@
   .btn-gold:hover{transform:translateY(-2px)}
   .btn-out{border:1.5px solid rgba(255,255,255,.35);color:#fff}
   .btn-out:hover{background:#fff;color:#111;border-color:#fff}
-  .btn-dark{background:#141417;color:#fff}
-  .btn-dark:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(0,0,0,.5)}
   .nav-cta{display:flex;align-items:center;gap:14px}
+  .lang{display:inline-flex;align-items:center;gap:2px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:100px;padding:3px}
+  .lang button{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.04em;color:#c9c9d1;background:none;border:0;
+    padding:5px 10px;border-radius:100px;cursor:pointer;transition:.15s}
+  .lang button.on{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1408}
   .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
   .burger span{width:24px;height:2px;background:#fff;border-radius:2px}
 
-  /* HERO */
   .hero{min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden}
   .hero-bg{position:absolute;inset:0;background:url('assets/hero.jpg') center 42%/cover no-repeat}
   .hero-bg:after{content:'';position:absolute;inset:0;
@@ -72,7 +71,6 @@
   .hero .hmeta b{color:#fff;font-weight:600}
   .gold-i{color:var(--gold)}
 
-  /* SECTION SHELL */
   .sec{padding:96px 0}
   .sec-head{text-align:center;max-width:680px;margin:0 auto 54px}
   .sec-head .lead{margin:16px auto 0}
@@ -80,7 +78,6 @@
   .sec.dark .lead{color:#b7b7c0}
   .sec.dark h2.title{color:#fff}
 
-  /* ABOUT */
   .about{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
   .about .txt h2{margin-bottom:18px}
   .about .feats{display:flex;flex-direction:column;gap:16px;margin-top:26px}
@@ -90,19 +87,17 @@
   .about .feat p{font-size:14.5px;color:#5a5a63;line-height:1.5}
   .about .pics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .about .pics img{border-radius:14px;height:100%;object-fit:cover;box-shadow:0 24px 50px -26px rgba(0,0,0,.4)}
-  .about .pics .tall{grid-row:span 2;height:100%}
+  .about .pics .tall{grid-row:span 2;height:100%;object-position:left}
 
-  /* SERVICES */
   .menu{display:grid;grid-template-columns:1fr 1fr;gap:30px 60px;max-width:960px;margin:0 auto}
   .menu-col h3{font-family:var(--disp);font-size:30px;letter-spacing:.04em;color:#fff;margin-bottom:8px}
   .menu-col .kick{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block}
   .row{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px dashed rgba(255,255,255,.13)}
   .row .name{font-size:16px;color:#efeff3;font-weight:500}
   .row .dots{flex:1;border-bottom:1px dotted rgba(255,255,255,.22);transform:translateY(-4px)}
-  .row .price{font-family:var(--disp);font-size:22px;letter-spacing:.03em;color:var(--gold2)}
+  .row .price{font-family:var(--disp);font-size:22px;letter-spacing:.03em;color:var(--gold2);white-space:nowrap}
   .menu-note{text-align:center;margin-top:40px;font-size:14px;color:#9a9aa4}
 
-  /* LOYALTY */
   .loyal{background:linear-gradient(135deg,#17130a,#0d0d0f 60%);border:1px solid rgba(200,162,74,.3);border-radius:24px;
     padding:46px 44px;display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center;color:#fff}
   .loyal .eyebrow{color:var(--gold2)}
@@ -111,16 +106,14 @@
   .stamps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
   .stamp{width:52px;height:52px;border-radius:50%;border:1.5px dashed rgba(200,162,74,.5);display:flex;align-items:center;justify-content:center;
     font-family:var(--disp);font-size:20px;color:rgba(200,162,74,.6)}
-  .stamp.free{border-style:solid;border-color:var(--gold);background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1408;font-size:12px;font-weight:800;font-family:var(--sans);letter-spacing:.04em}
+  .stamp.free{border-style:solid;border-color:var(--gold);background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1408;font-size:11px;font-weight:800;font-family:var(--sans);letter-spacing:.02em}
 
-  /* GALLERY */
   .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .gal a{border-radius:14px;overflow:hidden;position:relative;aspect-ratio:3/4;box-shadow:0 20px 44px -28px rgba(0,0,0,.5)}
   .gal a img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
   .gal a:hover img{transform:scale(1.06)}
   .gal a.wide{grid-column:span 2;aspect-ratio:3/2}
 
-  /* CONTACT */
   .contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch}
   .cinfo h2{margin-bottom:22px}
   .cline{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -133,10 +126,9 @@
   .hours .hr b{color:#fff}
   .hours .hr.closed span{color:#7a7a83}
   .cta-block{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
-  .map{border-radius:18px;overflow:hidden;min-height:420px;border:1px solid rgba(255,255,255,.12)}
-  .map iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(.3) contrast(1.05)}
+  .map{border-radius:18px;overflow:hidden;min-height:300px;border:1px solid rgba(255,255,255,.12)}
+  .map iframe{width:100%;height:100%;min-height:300px;border:0;filter:grayscale(.3) contrast(1.05)}
 
-  /* FOOTER */
   footer{background:#0a0a0c;color:#fff;padding:56px 0 30px}
   .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;align-items:flex-start;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1)}
   .foot-brand{display:flex;align-items:center;gap:14px}
@@ -149,7 +141,6 @@
   .foot-links .col a:hover{color:#fff}
   .foot-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-top:22px;font-size:12.5px;color:#7a7a83}
 
-  /* sticky mobile call bar */
   .mobar{display:none}
 
   @media(max-width:900px){
@@ -165,7 +156,6 @@
     .gal{grid-template-columns:repeat(2,1fr)}
     .gal a.wide{grid-column:span 2}
     .contact{grid-template-columns:1fr;gap:30px}
-    .map{min-height:320px}
     .mobar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:60;gap:0}
     .mobar a{flex:1;text-align:center;padding:15px;font-weight:700;font-size:15px;letter-spacing:.02em}
     .mobar .wa{background:#25d366;color:#06331a}
@@ -173,36 +163,53 @@
     body{padding-bottom:54px}
     .hero{min-height:92vh}
   }
-  @media(max-width:520px){
-    .about .pics{grid-template-columns:1fr 1fr}
-    .foot-top{flex-direction:column}
-  }
-  /* mobile menu drawer */
+  @media(max-width:520px){ .foot-top{flex-direction:column} }
+
   #drawer{position:fixed;inset:0;z-index:70;background:rgba(10,10,12,.97);backdrop-filter:blur(6px);display:none;
     flex-direction:column;align-items:center;justify-content:center;gap:24px}
   #drawer.open{display:flex}
   #drawer a{color:#fff;font-family:var(--disp);font-size:34px;letter-spacing:.05em}
   #drawer a:hover{color:var(--gold)}
   #drawer .close{position:absolute;top:24px;right:26px;font-size:34px;color:#fff;font-family:var(--sans);font-weight:300}
+
+  /* ARABIC / RTL */
+  [dir="rtl"] body{font-family:'Cairo',var(--sans)}
+  [dir="rtl"] .hero-in,[dir="rtl"] .about .txt,[dir="rtl"] .cinfo{text-align:right}
+  [dir="rtl"] .eyebrow,[dir="rtl"] .menu-col .kick,[dir="rtl"] .cline .k,[dir="rtl"] .foot-links .col h5,[dir="rtl"] .hero .pill{letter-spacing:0}
+  [dir="rtl"] h1,[dir="rtl"] h2.title,[dir="rtl"] .hero h1,[dir="rtl"] .menu-col h3,[dir="rtl"] .loyal h3,
+  [dir="rtl"] .foot-brand .wm,[dir="rtl"] .stamp{font-family:'Cairo',sans-serif;font-weight:800;letter-spacing:0;text-transform:none;line-height:1.15}
+  [dir="rtl"] .hero .tag{font-family:'Cairo',sans-serif;font-style:normal;font-weight:700}
+  [dir="rtl"] .foot-brand .wm small{font-family:'Cairo',sans-serif;font-style:normal}
+  [dir="rtl"] .row .price,[dir="rtl"] .cat .price{font-family:'Cairo',sans-serif;font-weight:800}
+  [dir="rtl"] .brand .wm,[dir="rtl"] footer .foot-brand .wm{direction:ltr}
+
+  /* scroll reveal polish */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="wrap nav-in">
     <a href="#top" class="brand">
-      <img class="badge" src="assets/logo_sign.jpg" alt="Kami's Cut Logo">
+      <img class="badge" src="assets/logo.jpg" alt="Kami's Cut Logo" style="background:#fff;object-fit:contain;padding:2px;border-color:rgba(255,255,255,.35)">
       <span class="wm">KAMI'S CUT<small>BARBER SHOP · KÖLN</small></span>
     </a>
     <div class="nav-links">
-      <a href="#about">Über uns</a>
-      <a href="#services">Leistungen</a>
-      <a href="#gallery">Galerie</a>
-      <a href="#contact">Kontakt</a>
+      <a href="#about" data-i18n="nav.about">Über uns</a>
+      <a href="#services" data-i18n="nav.services">Leistungen</a>
+      <a href="#gallery" data-i18n="nav.gallery">Galerie</a>
+      <a href="#contact" data-i18n="nav.contact">Kontakt</a>
     </div>
     <div class="nav-cta">
-      <a class="btn btn-gold" href="https://wa.me/4917662082034" target="_blank" rel="noopener">Termin per WhatsApp</a>
+      <div class="lang" id="lang">
+        <button data-lang="de" class="on">DE</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="ar">ع</button>
+      </div>
+      <a class="btn btn-gold" href="https://wa.me/4917662082034" target="_blank" rel="noopener" data-i18n="nav.cta">Termin per WhatsApp</a>
       <div class="burger" onclick="document.getElementById('drawer').classList.add('open')"><span></span><span></span><span></span></div>
     </div>
   </div>
@@ -210,141 +217,136 @@
 
 <div id="drawer">
   <div class="close" onclick="this.parentNode.classList.remove('open')">✕</div>
-  <a href="#about" onclick="document.getElementById('drawer').classList.remove('open')">Über uns</a>
-  <a href="#services" onclick="document.getElementById('drawer').classList.remove('open')">Leistungen</a>
-  <a href="#gallery" onclick="document.getElementById('drawer').classList.remove('open')">Galerie</a>
-  <a href="#contact" onclick="document.getElementById('drawer').classList.remove('open')">Kontakt</a>
+  <a href="#about" data-i18n="nav.about" onclick="document.getElementById('drawer').classList.remove('open')">Über uns</a>
+  <a href="#services" data-i18n="nav.services" onclick="document.getElementById('drawer').classList.remove('open')">Leistungen</a>
+  <a href="#gallery" data-i18n="nav.gallery" onclick="document.getElementById('drawer').classList.remove('open')">Galerie</a>
+  <a href="#contact" data-i18n="nav.contact" onclick="document.getElementById('drawer').classList.remove('open')">Kontakt</a>
   <a href="https://wa.me/4917662082034" style="color:var(--gold)">WhatsApp</a>
 </div>
 
-<!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="wrap hero-in">
-    <div class="pill"><span class="dot"></span>Neu eröffnet · Köln Neustadt</div>
+    <div class="pill"><span class="dot"></span><span data-i18n="hero.pill">Neu eröffnet · Köln Neustadt</span></div>
     <h1>KAMI'S CUT</h1>
-    <div class="tag">Barber deines Vertrauens</div>
-    <p class="hsub">Moderner Barbershop an der Dasselstraße. Präzise Haarschnitte, saubere Fades, Bartpflege und klassische Rasur — in einem stylischen Studio mitten in Köln.</p>
+    <div class="tag" data-i18n="hero.tag">Barber deines Vertrauens</div>
+    <p class="hsub" data-i18n="hero.sub">Moderner Barbershop an der Dasselstraße. Präzise Haarschnitte, saubere Fades, Bartpflege und klassische Rasur — in einem stylischen Studio mitten in Köln.</p>
     <div class="cta-row">
-      <a class="btn btn-gold" href="https://wa.me/4917662082034" target="_blank" rel="noopener">💈 Termin per WhatsApp</a>
-      <a class="btn btn-out" href="tel:+4917662082034">Anrufen: 0176 62082034</a>
+      <a class="btn btn-gold" href="https://wa.me/4917662082034" target="_blank" rel="noopener"><span data-i18n="hero.btnwa">💈 Termin per WhatsApp</span></a>
+      <a class="btn btn-out" href="tel:+4917662082034"><span data-i18n="hero.btncall">Anrufen: 0176 62082034</span></a>
     </div>
     <div class="hmeta">
-      <span><b class="gold-i">◷</b> Mo–Fr&nbsp;<b>9–19 Uhr</b></span>
-      <span><b class="gold-i">⚲</b> Dasselstraße 70, Köln</span>
-      <span><b class="gold-i">✓</b> Walk-ins willkommen</span>
+      <span><b class="gold-i">◷</b>&nbsp;<b data-i18n="hero.m1">Mo–Fr 9–19 Uhr</b></span>
+      <span><b class="gold-i">⚲</b>&nbsp;<span data-i18n="hero.m2">Dasselstraße 70, Köln</span></span>
+      <span><b class="gold-i">✓</b>&nbsp;<span data-i18n="hero.m3">Walk-ins willkommen</span></span>
     </div>
   </div>
 </header>
 
-<!-- ABOUT -->
 <section class="sec" id="about">
   <div class="wrap about">
     <div class="txt">
-      <span class="eyebrow">Willkommen bei Kami's Cut</span>
-      <h2 class="title" style="margin-top:12px">Dein Barbershop<br>im Herzen von Köln</h2>
-      <p class="lead" style="font-size:18px">Frisch eröffnet in der Kölner Neustadt — dein neuer Lieblingsplatz für den perfekten Look. Bei uns treffen modernes Handwerk und eine entspannte Atmosphäre aufeinander, in der du einfach mal abschalten kannst. Ob frischer Fade, saubere Bartkontur oder die klassische Rasur mit heißem Handtuch: wir nehmen uns Zeit für dich und schicken dich mit einem Look raus, mit dem du dich richtig gut fühlst.</p>
-      <p class="lead" style="margin-top:14px">Unser Team spricht <b>Deutsch, Englisch, Arabisch und Kurdisch</b> — du fühlst dich vom ersten Moment an zuhause. Komm vorbei, Walk-ins sind jederzeit willkommen.</p>
+      <span class="eyebrow" data-i18n="about.eyebrow">Willkommen bei Kami's Cut</span>
+      <h2 class="title" style="margin-top:12px" data-i18n="about.h2">Dein Barbershop<br>im Herzen von Köln</h2>
+      <p class="lead" style="font-size:18px" data-i18n="about.lead1">Frisch eröffnet in der Kölner Neustadt — dein neuer Lieblingsplatz für den perfekten Look. Bei uns treffen modernes Handwerk und eine entspannte Atmosphäre aufeinander, in der du einfach mal abschalten kannst. Ob frischer Fade, saubere Bartkontur oder die klassische Rasur mit heißem Handtuch: wir nehmen uns Zeit für dich und schicken dich mit einem Look raus, mit dem du dich richtig gut fühlst.</p>
+      <p class="lead" style="margin-top:14px" data-i18n="about.lead2">Unser Team spricht <b>Deutsch, Englisch, Arabisch und Kurdisch</b> — du fühlst dich vom ersten Moment an zuhause. Komm vorbei, Walk-ins sind jederzeit willkommen.</p>
       <div class="feats">
-        <div class="feat"><div class="ic">✂</div><div><h4>Präzise Schnitte & Fades</h4><p>Saubere Übergänge, moderne Styles und der Klassiker — genau so, wie du ihn willst.</p></div></div>
-        <div class="feat"><div class="ic">💈</div><div><h4>Bartpflege & Rasur</h4><p>Konturen, Kürzen und die klassische Rasur für den perfekten Look.</p></div></div>
-        <div class="feat"><div class="ic">★</div><div><h4>Stylisches, sauberes Studio</h4><p>Modernes Ambiente, entspannte Atmosphäre und volle Aufmerksamkeit für dich.</p></div></div>
+        <div class="feat"><div class="ic">✂</div><div><h4 data-i18n="feat1.t">Präzise Schnitte &amp; Fades</h4><p data-i18n="feat1.d">Saubere Übergänge, moderne Styles und der Klassiker — genau so, wie du ihn willst.</p></div></div>
+        <div class="feat"><div class="ic">💈</div><div><h4 data-i18n="feat2.t">Bartpflege &amp; Rasur</h4><p data-i18n="feat2.d">Konturen, Kürzen und die klassische Rasur für den perfekten Look.</p></div></div>
+        <div class="feat"><div class="ic">★</div><div><h4 data-i18n="feat3.t">Stylisches, sauberes Studio</h4><p data-i18n="feat3.d">Modernes Ambiente, entspannte Atmosphäre und volle Aufmerksamkeit für dich.</p></div></div>
       </div>
     </div>
     <div class="pics">
-      <img class="tall" src="assets/logo-wall.jpg" alt="Kami's Cut Innenraum">
-      <img src="assets/products.jpg" alt="Pflegeprodukte bei Kami's Cut">
-      <img src="assets/lounge.jpg" alt="Wartebereich bei Kami's Cut">
+      <img class="tall" src="assets/logo-space.jpg" alt="Kami's Cut Logo im Studio">
+      <img src="assets/products.jpg" alt="Pflegeprodukte">
+      <img src="assets/lounge.jpg" alt="Wartebereich">
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="sec dark" id="services">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Leistungen & Preise</span>
-      <h2 class="title" style="margin-top:12px">Unsere Preisliste</h2>
-      <p class="lead">Faire, transparente Preise. Kein Schnickschnack — nur gutes Handwerk.</p>
+      <span class="eyebrow" data-i18n="services.eyebrow">Leistungen &amp; Preise</span>
+      <h2 class="title" style="margin-top:12px" data-i18n="services.h2">Unsere Preisliste</h2>
+      <p class="lead" data-i18n="services.lead">Faire, transparente Preise. Kein Schnickschnack — nur gutes Handwerk.</p>
     </div>
     <div class="menu">
       <div class="menu-col">
-        <span class="kick">Haare & Bart</span>
-        <div class="row"><span class="name">Schneiden</span><span class="dots"></span><span class="price">18€</span></div>
-        <div class="row"><span class="name">Schneiden mit Waschen</span><span class="dots"></span><span class="price">22€</span></div>
-        <div class="row"><span class="name">Bartrasur</span><span class="dots"></span><span class="price">10€</span></div>
-        <div class="row"><span class="name">Bart kürzen</span><span class="dots"></span><span class="price">8€</span></div>
-        <div class="row"><span class="name">Kinderhaarschnitt (bis 6 J.)</span><span class="dots"></span><span class="price">15€</span></div>
-        <div class="row"><span class="name">Waschen & Stylen</span><span class="dots"></span><span class="price">5€</span></div>
+        <span class="kick" data-i18n="col1.kick">Haare &amp; Bart</span>
+        <div class="row"><span class="name" data-i18n="s.cut">Schneiden</span><span class="dots"></span><span class="price">18€</span></div>
+        <div class="row"><span class="name" data-i18n="s.cutwash">Schneiden mit Waschen</span><span class="dots"></span><span class="price">22€</span></div>
+        <div class="row"><span class="name" data-i18n="s.shave">Bartrasur</span><span class="dots"></span><span class="price">10€</span></div>
+        <div class="row"><span class="name" data-i18n="s.trim">Bart kürzen</span><span class="dots"></span><span class="price">8€</span></div>
+        <div class="row"><span class="name" data-i18n="s.kids">Kinderhaarschnitt (bis 6 J.)</span><span class="dots"></span><span class="price">15€</span></div>
+        <div class="row"><span class="name" data-i18n="s.wash">Waschen &amp; Stylen</span><span class="dots"></span><span class="price">5€</span></div>
       </div>
       <div class="menu-col">
-        <span class="kick">Augenbrauen & Gesichtspflege</span>
-        <div class="row"><span class="name">Augenbrauen zupfen (Faden)</span><span class="dots"></span><span class="price">10€</span></div>
-        <div class="row"><span class="name">Augenbrauen mit Messer</span><span class="dots"></span><span class="price">5€</span></div>
-        <div class="row"><span class="name">Reinigung + Pflege</span><span class="dots"></span><span class="price">12€</span></div>
-        <div class="row"><span class="name">Warmwachs-Haarentfernung</span><span class="dots"></span><span class="price">ab 4€</span></div>
+        <span class="kick" data-i18n="col2.kick">Augenbrauen &amp; Gesichtspflege</span>
+        <div class="row"><span class="name" data-i18n="s.browt">Augenbrauen zupfen (Faden)</span><span class="dots"></span><span class="price">10€</span></div>
+        <div class="row"><span class="name" data-i18n="s.browr">Augenbrauen mit Messer</span><span class="dots"></span><span class="price">5€</span></div>
+        <div class="row"><span class="name" data-i18n="s.clean">Reinigung + Pflege</span><span class="dots"></span><span class="price">12€</span></div>
+        <div class="row"><span class="name" data-i18n="s.wax">Warmwachs-Haarentfernung</span><span class="dots"></span><span class="price" data-i18n="s.wax.p">ab 4€</span></div>
       </div>
     </div>
-    <p class="menu-note">Keine Online-Buchung nötig — komm vorbei oder schreib uns kurz auf WhatsApp.</p>
+    <p class="menu-note" data-i18n="menu.note">Keine Online-Buchung nötig — komm vorbei oder schreib uns kurz auf WhatsApp.</p>
 
     <div class="loyal" style="margin-top:56px">
       <div>
-        <span class="eyebrow">Treuekarte</span>
-        <h3>Jeder 10. Schnitt<br>geht aufs Haus</h3>
-        <p>Sammel bei jedem Besuch einen Stempel. Nach neun Schnitten ist dein zehnter <b>gratis</b> — unser Dankeschön für deine Treue.</p>
+        <span class="eyebrow" data-i18n="loyal.eyebrow">Treuekarte</span>
+        <h3 data-i18n="loyal.h3">Jeder 10. Schnitt<br>geht aufs Haus</h3>
+        <p data-i18n="loyal.p">Sammel bei jedem Besuch einen Stempel. Nach neun Schnitten ist dein zehnter <b>gratis</b> — unser Dankeschön für deine Treue.</p>
       </div>
       <div class="stamps">
         <div class="stamp">K</div><div class="stamp">K</div><div class="stamp">K</div><div class="stamp">K</div><div class="stamp">K</div>
-        <div class="stamp">K</div><div class="stamp">K</div><div class="stamp">K</div><div class="stamp">K</div><div class="stamp free">GRATIS</div>
+        <div class="stamp">K</div><div class="stamp">K</div><div class="stamp">K</div><div class="stamp">K</div><div class="stamp free" data-i18n="stamp.free">GRATIS</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
 <section class="sec" id="gallery" style="background:var(--paper2)">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Einblicke</span>
-      <h2 class="title" style="margin-top:12px">Das Studio</h2>
-      <p class="lead">Modernes Ambiente mitten in Köln — komm vorbei und überzeug dich selbst.</p>
+      <span class="eyebrow" data-i18n="gallery.eyebrow">Einblicke</span>
+      <h2 class="title" style="margin-top:12px" data-i18n="gallery.h2">Das Studio</h2>
+      <p class="lead" data-i18n="gallery.lead">Modernes Ambiente mitten in Köln — komm vorbei und überzeug dich selbst.</p>
     </div>
     <div class="gal">
-      <a class="wide" href="assets/hero.jpg" target="_blank"><img src="assets/hero.jpg" alt="Kami's Cut Studio"></a>
+      <a class="wide" href="assets/logo-space.jpg" target="_blank"><img src="assets/logo-space.jpg" alt="Kami's Cut Logo im Studio"></a>
+      <a href="assets/hero.jpg" target="_blank"><img src="assets/hero.jpg" alt="Studio"></a>
       <a href="assets/chairs.jpg" target="_blank"><img src="assets/chairs.jpg" alt="Barber-Stühle"></a>
-      <a href="assets/interior-wide.jpg" target="_blank"><img src="assets/interior-wide.jpg" alt="Innenraum Kami's Cut"></a>
+      <a href="assets/interior-wide.jpg" target="_blank"><img src="assets/interior-wide.jpg" alt="Innenraum"></a>
       <a href="assets/products.jpg" target="_blank"><img src="assets/products.jpg" alt="Produkte"></a>
-      <a href="assets/lounge.jpg" target="_blank"><img src="assets/lounge.jpg" alt="Lounge-Bereich"></a>
-      <a href="assets/chairs-2.jpg" target="_blank"><img src="assets/chairs-2.jpg" alt="Arbeitsplätze"></a>
-      <a class="wide" href="assets/logo-wall.jpg" target="_blank"><img src="assets/logo-wall.jpg" alt="Kami's Cut Logo-Wand"></a>
+      <a href="assets/lounge.jpg" target="_blank"><img src="assets/lounge.jpg" alt="Lounge"></a>
+      <a class="wide" href="assets/logo-wall.jpg" target="_blank"><img src="assets/logo-wall.jpg" alt="Logo-Wand"></a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="sec dark" id="contact">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Besuch uns</span>
-      <h2 class="title" style="margin-top:12px">Kontakt & Öffnungszeiten</h2>
+      <span class="eyebrow" data-i18n="contact.eyebrow">Besuch uns</span>
+      <h2 class="title" style="margin-top:12px" data-i18n="contact.h2">Kontakt &amp; Öffnungszeiten</h2>
     </div>
     <div class="contact">
       <div class="cinfo">
-        <div class="cline"><div class="ic">⚲</div><div><div class="k">Adresse</div><div class="v">Dasselstraße 70<br>50674 Köln</div><div style="font-size:13px;color:#8a8a93;margin-top:4px">Mitten in der Neustadt · gut mit KVB, Bus &amp; zu Fuß erreichbar</div></div></div>
-        <div class="cline"><div class="ic">✆</div><div><div class="k">Telefon / WhatsApp</div><div class="v"><a href="tel:+4917662082034">0176 62082034</a></div></div></div>
-        <div class="cline"><div class="ic">✉</div><div><div class="k">E-Mail</div><div class="v"><a href="mailto:kamiscut@posteo.de">kamiscut@posteo.de</a></div></div></div>
+        <div class="cline"><div class="ic">⚲</div><div><div class="k" data-i18n="contact.addr">Adresse</div><div class="v">Dasselstraße 70<br>50674 Köln</div><div style="font-size:13px;color:#8a8a93;margin-top:4px" data-i18n="contact.reach">Mitten in der Neustadt · gut mit KVB, Bus &amp; zu Fuß erreichbar</div></div></div>
+        <div class="cline"><div class="ic">✆</div><div><div class="k" data-i18n="contact.phone">Telefon / WhatsApp</div><div class="v"><a href="tel:+4917662082034">0176 62082034</a></div></div></div>
+        <div class="cline"><div class="ic">✉</div><div><div class="k" data-i18n="contact.email">E-Mail</div><div class="v"><a href="mailto:kamiscut@posteo.de">kamiscut@posteo.de</a></div></div></div>
         <div class="hours">
-          <div class="hr"><span>Montag – Freitag</span><b>9:00 – 19:00</b></div>
-          <div class="hr"><span>Samstag</span><b>nach Vereinbarung</b></div>
-          <div class="hr closed"><span>Sonntag</span><span>geschlossen</span></div>
+          <div class="hr"><span data-i18n="hours.mf">Montag – Freitag</span><b>9:00 – 19:00</b></div>
+          <div class="hr"><span data-i18n="hours.sa">Samstag</span><b data-i18n="hours.sa.v">nach Vereinbarung</b></div>
+          <div class="hr closed"><span data-i18n="hours.su">Sonntag</span><span data-i18n="hours.su.v">geschlossen</span></div>
         </div>
         <div class="cta-block">
-          <a class="btn btn-gold" href="https://wa.me/4917662082034" target="_blank" rel="noopener">💈 Termin per WhatsApp</a>
-          <a class="btn btn-out" href="tel:+4917662082034">Anrufen</a>
+          <a class="btn btn-gold" href="https://wa.me/4917662082034" target="_blank" rel="noopener"><span data-i18n="hero.btnwa">💈 Termin per WhatsApp</span></a>
+          <a class="btn btn-out" href="tel:+4917662082034"><span data-i18n="contact.call">Anrufen</span></a>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px">
-        <img src="assets/entrance.jpg" alt="Eingang von Kami's Cut an der Dasselstraße 70 in Köln" style="width:100%;height:250px;object-fit:cover;object-position:center 62%;border-radius:18px;border:1px solid rgba(255,255,255,.12)">
+        <img src="assets/entrance.jpg" alt="Eingang Kami's Cut" style="width:100%;height:230px;object-fit:cover;object-position:center 62%;border-radius:18px;border:1px solid rgba(255,255,255,.12)">
         <div class="map">
           <iframe title="Kami's Cut auf der Karte" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             src="https://maps.google.com/maps?q=Dasselstra%C3%9Fe%2070%2C%2050674%20K%C3%B6ln&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
@@ -354,52 +356,132 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <img src="assets/logo_sign.jpg" alt="Kami's Cut">
-        <div class="wm">KAMI'S CUT<small>Barber deines Vertrauens</small></div>
+        <img src="assets/logo.jpg" alt="Kami's Cut" style="background:#fff;object-fit:contain;padding:3px">
+        <div class="wm">KAMI'S CUT<small data-i18n="footer.tag">Barber deines Vertrauens</small></div>
       </div>
       <div class="foot-links">
         <div class="col">
-          <h5>Menü</h5>
-          <a href="#about">Über uns</a>
-          <a href="#services">Leistungen</a>
-          <a href="#gallery">Galerie</a>
-          <a href="#contact">Kontakt</a>
+          <h5 data-i18n="footer.menu">Menü</h5>
+          <a href="#about" data-i18n="nav.about">Über uns</a>
+          <a href="#services" data-i18n="nav.services">Leistungen</a>
+          <a href="#gallery" data-i18n="nav.gallery">Galerie</a>
+          <a href="#contact" data-i18n="nav.contact">Kontakt</a>
         </div>
         <div class="col">
-          <h5>Kontakt</h5>
+          <h5 data-i18n="footer.contact">Kontakt</h5>
           <p>Dasselstraße 70<br>50674 Köln</p>
           <a href="tel:+4917662082034">0176 62082034</a>
           <a href="mailto:kamiscut@posteo.de">kamiscut@posteo.de</a>
         </div>
         <div class="col">
-          <h5>Öffnungszeiten</h5>
-          <p>Mo–Fr: 9:00–19:00<br>Sa: nach Vereinbarung<br>So: geschlossen</p>
+          <h5 data-i18n="footer.hours">Öffnungszeiten</h5>
+          <p data-i18n="footer.hoursval">Mo–Fr: 9:00–19:00<br>Sa: nach Vereinbarung<br>So: geschlossen</p>
         </div>
       </div>
     </div>
     <div class="foot-bot">
-      <span>© 2026 Kami's Cut · Barbershop Köln</span>
+      <span>© 2026 Kami's Cut · <span data-i18n="footer.city">Barbershop Köln</span></span>
       <span>Dasselstraße 70 · 50674 Köln</span>
     </div>
   </div>
 </footer>
 
-<!-- mobile sticky call bar -->
 <div class="mobar">
   <a class="wa" href="https://wa.me/4917662082034" target="_blank" rel="noopener">WhatsApp</a>
-  <a class="call" href="tel:+4917662082034">Anrufen</a>
+  <a class="call" href="tel:+4917662082034" data-i18n="contact.call">Anrufen</a>
 </div>
 
 <script>
-  // nav bg solid on scroll
-  addEventListener('scroll',function(){
-    document.querySelector('nav').style.background = scrollY>40 ? 'rgba(13,13,15,.94)' : 'rgba(13,13,15,.72)';
+const I18N = {
+  de:{},
+  en:{
+    "nav.about":"About","nav.services":"Services","nav.gallery":"Gallery","nav.contact":"Contact","nav.cta":"Book on WhatsApp",
+    "hero.pill":"Now open · Köln Neustadt","hero.tag":"The barber you can trust",
+    "hero.sub":"A modern barbershop on Dasselstraße. Precise haircuts, clean fades, beard care and the classic shave — in a stylish studio in the heart of Köln.",
+    "hero.btnwa":"💈 Book on WhatsApp","hero.btncall":"Call: 0176 62082034","hero.m1":"Mon–Fri 9am–7pm","hero.m2":"Dasselstraße 70, Köln","hero.m3":"Walk-ins welcome",
+    "about.eyebrow":"Welcome to Kami's Cut","about.h2":"Your barbershop<br>in the heart of Köln",
+    "about.lead1":"Freshly opened in Köln's Neustadt — your new favourite spot for the perfect look. Here modern craft meets a relaxed atmosphere where you can simply switch off. Whether a fresh fade, a clean beard line or the classic hot-towel shave: we take our time and send you out with a look that feels great.",
+    "about.lead2":"Our team speaks <b>German, English, Arabic and Kurdish</b> — you'll feel at home from the first moment. Drop by anytime, walk-ins are always welcome.",
+    "feat1.t":"Precise cuts & fades","feat1.d":"Clean transitions, modern styles and the classics — exactly how you want it.",
+    "feat2.t":"Beard care & shave","feat2.d":"Lines, trims and the classic shave for the perfect look.",
+    "feat3.t":"Stylish, clean studio","feat3.d":"A modern space, relaxed atmosphere and our full attention on you.",
+    "services.eyebrow":"Services & Prices","services.h2":"Our price list","services.lead":"Fair, transparent prices. No fuss — just good craft.",
+    "col1.kick":"Hair & Beard","col2.kick":"Brows & Face care",
+    "s.cut":"Haircut","s.cutwash":"Haircut with wash","s.shave":"Beard shave","s.trim":"Beard trim","s.kids":"Kids' cut (under 6)","s.wash":"Wash & style",
+    "s.browt":"Eyebrows (threading)","s.browr":"Eyebrows (razor)","s.clean":"Cleansing + care","s.wax":"Warm-wax hair removal","s.wax.p":"from 4€",
+    "menu.note":"No online booking needed — drop by or send us a quick WhatsApp.",
+    "loyal.eyebrow":"Loyalty card","loyal.h3":"Every 10th cut<br>is on us",
+    "loyal.p":"Collect a stamp on every visit. After nine cuts, your tenth is <b>free</b> — our thank-you for your loyalty.","stamp.free":"FREE",
+    "gallery.eyebrow":"Inside","gallery.h2":"The studio","gallery.lead":"A modern space in the heart of Köln — come and see for yourself.",
+    "contact.eyebrow":"Visit us","contact.h2":"Contact & opening hours","contact.addr":"Address",
+    "contact.reach":"In the Neustadt · easy by tram, bus & on foot","contact.phone":"Phone / WhatsApp","contact.email":"Email",
+    "hours.mf":"Monday – Friday","hours.sa":"Saturday","hours.sa.v":"by appointment","hours.su":"Sunday","hours.su.v":"closed","contact.call":"Call",
+    "footer.tag":"The barber you can trust","footer.menu":"Menu","footer.contact":"Contact","footer.hours":"Opening hours",
+    "footer.hoursval":"Mon–Fri: 9:00–19:00<br>Sat: by appointment<br>Sun: closed","footer.city":"Barbershop Köln"
+  },
+  ar:{
+    "nav.about":"من نحن","nav.services":"الخدمات","nav.gallery":"المعرض","nav.contact":"تواصل","nav.cta":"احجز عبر واتساب",
+    "hero.pill":"افتتاح جديد · كولونيا","hero.tag":"حلاقك الموثوق",
+    "hero.sub":"صالون حلاقة عصري في شارع داسيلشتراسه. قصّات دقيقة، تدرّج ناعم، عناية باللحية وحلاقة كلاسيكية — في استوديو أنيق في قلب كولونيا.",
+    "hero.btnwa":"💈 احجز عبر واتساب","hero.btncall":"اتصل: 0176 62082034","hero.m1":"الاثنين–الجمعة ٩–١٩","hero.m2":"داسيلشتراسه ٧٠، كولونيا","hero.m3":"بدون موعد مسبق",
+    "about.eyebrow":"أهلاً بك في Kami's Cut","about.h2":"صالونك في قلب كولونيا",
+    "about.lead1":"افتُتحنا حديثاً في حي نويشتات بكولونيا — مكانك المفضّل الجديد للإطلالة المثالية. هنا تلتقي الحِرفية العصرية بأجواء مريحة تتيح لك الاسترخاء. سواء تدرّج جديد، خط لحية نظيف، أو الحلاقة الكلاسيكية بالمنشفة الساخنة: نمنحك وقتنا ونرسلك بإطلالة تُشعرك بالرضا.",
+    "about.lead2":"فريقنا يتحدّث <b>الألمانية والإنجليزية والعربية والكردية</b> — ستشعر وكأنك في بيتك من اللحظة الأولى. مرحباً بك في أي وقت، بدون موعد مسبق.",
+    "feat1.t":"قصّات وتدرّجات دقيقة","feat1.d":"انتقالات نظيفة، ستايلات عصرية والكلاسيكي — تماماً كما تريد.",
+    "feat2.t":"عناية باللحية وحلاقة","feat2.d":"تحديد، تهذيب، وحلاقة كلاسيكية لإطلالة مثالية.",
+    "feat3.t":"استوديو أنيق ونظيف","feat3.d":"أجواء عصرية، جوّ مريح، واهتمام كامل بك.",
+    "services.eyebrow":"الخدمات والأسعار","services.h2":"قائمة الأسعار","services.lead":"أسعار عادلة وشفّافة. بلا تعقيد — فقط حِرفة جيدة.",
+    "col1.kick":"الشعر واللحية","col2.kick":"الحواجب والعناية بالبشرة",
+    "s.cut":"قص الشعر","s.cutwash":"قص مع غسيل","s.shave":"حلاقة اللحية","s.trim":"تهذيب اللحية","s.kids":"قص أطفال (حتى ٦ سنوات)","s.wash":"غسيل وتصفيف",
+    "s.browt":"تنظيف الحواجب (خيط)","s.browr":"حواجب بالموس","s.clean":"تنظيف وعناية","s.wax":"إزالة الشعر بالشمع الساخن","s.wax.p":"من ٤€",
+    "menu.note":"لا حاجة للحجز عبر الإنترنت — مُرّ علينا أو راسلنا سريعاً على واتساب.",
+    "loyal.eyebrow":"بطاقة الولاء","loyal.h3":"كل قصّة عاشرة<br>على حسابنا",
+    "loyal.p":"اجمع ختماً في كل زيارة. بعد تسع قصّات، العاشرة <b>مجاناً</b> — شكراً لولائك.","stamp.free":"مجاناً",
+    "gallery.eyebrow":"لمحات","gallery.h2":"الاستوديو","gallery.lead":"أجواء عصرية في قلب كولونيا — تعال وشاهد بنفسك.",
+    "contact.eyebrow":"زُرنا","contact.h2":"التواصل وساعات العمل","contact.addr":"العنوان",
+    "contact.reach":"في وسط نويشتات · يسهل الوصول بالترام والحافلة وسيراً","contact.phone":"الهاتف / واتساب","contact.email":"البريد الإلكتروني",
+    "hours.mf":"الاثنين – الجمعة","hours.sa":"السبت","hours.sa.v":"بموعد مسبق","hours.su":"الأحد","hours.su.v":"مغلق","contact.call":"اتصل",
+    "footer.tag":"حلاقك الموثوق","footer.menu":"القائمة","footer.contact":"تواصل","footer.hours":"ساعات العمل",
+    "footer.hoursval":"الاثنين–الجمعة: ٩:٠٠–١٩:٠٠<br>السبت: بموعد مسبق<br>الأحد: مغلق","footer.city":"صالون حلاقة كولونيا"
+  }
+};
+// capture German defaults from the DOM
+document.querySelectorAll('[data-i18n]').forEach(function(el){ I18N.de[el.getAttribute('data-i18n')] = el.innerHTML; });
+
+function setLang(l){
+  var dict = I18N[l] || {};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    if(dict[k] !== undefined) el.innerHTML = dict[k];
   });
+  document.documentElement.lang = l;
+  document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  document.querySelectorAll('#lang button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang') === l); });
+  try{ localStorage.setItem('kc_lang', l); }catch(e){}
+}
+document.querySelectorAll('#lang button').forEach(function(b){
+  b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+});
+(function(){ var saved; try{ saved = localStorage.getItem('kc_lang'); }catch(e){} if(saved && saved!=='de') setLang(saved); })();
+
+addEventListener('scroll',function(){
+  document.querySelector('nav').style.background = scrollY>40 ? 'rgba(13,13,15,.94)' : 'rgba(13,13,15,.72)';
+});
+
+// scroll-reveal polish
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var els = document.querySelectorAll('.sec-head,.about .txt,.about .pics img,.feat,.menu-col,.loyal,.gal a,.cinfo,.contact .map,.menu-note');
+  els.forEach(function(el){ el.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12, rootMargin:'0px 0px -7% 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
 </script>
 </body>
 </html>
