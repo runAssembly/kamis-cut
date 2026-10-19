@@ -156,6 +156,25 @@
     font-family:var(--disp);font-size:16px;letter-spacing:.08em;color:#fff;opacity:0;transition:opacity .35s}
   .gal a:hover .workcap{opacity:1}
 
+  /* ---- reviews ---- */
+  .rev-badge{display:inline-flex;align-items:center;gap:16px;background:rgba(255,255,255,.05);
+    border:1px solid rgba(200,162,74,.38);border-radius:100px;padding:12px 26px}
+  .rev-badge .num{font-family:var(--disp);font-size:40px;color:var(--gold2);line-height:1}
+  .rev-badge .st{color:var(--gold2);font-size:17px;letter-spacing:2px}
+  .rev-badge .cnt{font-size:13px;color:#b7b7c0}
+  .revs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px;max-width:960px;margin-left:auto;margin-right:auto}
+  .revcard{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;
+    padding:26px 26px 22px;display:flex;flex-direction:column;text-align:left}
+  .revcard .st{color:var(--gold2);letter-spacing:2px;font-size:15px}
+  .revcard p{color:#d9d9df;font-size:15.5px;line-height:1.65;margin:12px 0 18px;flex:1}
+  .revcard .who{display:flex;align-items:center;gap:12px}
+  .revcard .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold));
+    color:#1a1408;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:18px;flex:0 0 40px}
+  .revcard .nm{font-weight:600;color:#fff;font-size:14.5px;line-height:1.2}
+  .revcard .src{font-size:12px;color:#8a8a93;margin-top:3px}
+  .rev-cta{text-align:center;margin-top:38px}
+  [dir="rtl"] .revcard{text-align:right}
+
   .contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch}
   .cinfo h2{margin-bottom:22px}
   .cline{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -198,6 +217,7 @@
     .gal{grid-template-columns:repeat(2,1fr)}
     .gal.g3{grid-template-columns:repeat(2,1fr)}
     .gal a.wide{grid-column:span 2}
+    .revs{grid-template-columns:1fr}
     .contact{grid-template-columns:1fr;gap:30px}
     .mobar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:60;gap:0}
     .mobar a{flex:1;text-align:center;padding:15px;font-weight:700;font-size:15px;letter-spacing:.02em}
@@ -244,6 +264,7 @@
       <a href="#about" data-i18n="nav.about">Über uns</a>
       <a href="#services" data-i18n="nav.services">Leistungen</a>
       <a href="#work" data-i18n="nav.work">Unsere Arbeit</a>
+      <a href="#reviews" data-i18n="nav.reviews">Bewertungen</a>
       <a href="#gallery" data-i18n="nav.gallery">Galerie</a>
       <a href="#contact" data-i18n="nav.contact">Kontakt</a>
     </div>
@@ -264,6 +285,7 @@
   <a href="#about" data-i18n="nav.about" onclick="document.getElementById('drawer').classList.remove('open')">Über uns</a>
   <a href="#services" data-i18n="nav.services" onclick="document.getElementById('drawer').classList.remove('open')">Leistungen</a>
   <a href="#work" data-i18n="nav.work" onclick="document.getElementById('drawer').classList.remove('open')">Unsere Arbeit</a>
+  <a href="#reviews" data-i18n="nav.reviews" onclick="document.getElementById('drawer').classList.remove('open')">Bewertungen</a>
   <a href="#gallery" data-i18n="nav.gallery" onclick="document.getElementById('drawer').classList.remove('open')">Galerie</a>
   <a href="#contact" data-i18n="nav.contact" onclick="document.getElementById('drawer').classList.remove('open')">Kontakt</a>
   <a href="https://wa.me/4917662082034" style="color:var(--gold)">WhatsApp</a>
@@ -375,6 +397,49 @@
   </div>
 </section>
 
+<section class="sec dark" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="rev.eyebrow">Das sagen unsere Kunden</span>
+      <h2 class="title" style="margin-top:12px" data-i18n="rev.h2">5,0 Sterne auf Google</h2>
+      <div style="display:flex;justify-content:center;margin-top:22px">
+        <div class="rev-badge">
+          <span class="num">5,0</span>
+          <span>
+            <span class="st">★★★★★</span><br>
+            <span class="cnt" data-i18n="rev.count">188 Bewertungen auf Google</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="revs">
+      <div class="revcard">
+        <span class="st">★★★★★</span>
+        <p>„Super Friseure, man fühlt sich direkt wohl und wird freundlich empfangen. Die Beratung und das Ergebnis waren top. Für mich definitiv einer der besten Friseure in Deutschland. Ich komme gerne wieder!"</p>
+        <div class="who"><div class="av">D</div><div><div class="nm">Diyar Khaleel</div><div class="src" data-i18n="rev.src">Google Rezension</div></div></div>
+      </div>
+      <div class="revcard">
+        <span class="st">★★★★★</span>
+        <p>„Sehr kompetente und freundliche Friseure. Schnitt ist immer perfekt, aus meiner Sicht der beste Friseurladen in Köln."</p>
+        <div class="who"><div class="av">M</div><div><div class="nm">Max</div><div class="src" data-i18n="rev.src">Google Rezension</div></div></div>
+      </div>
+      <div class="revcard">
+        <span class="st">★★★★★</span>
+        <p>„Ich kann nur positives über den Laden sagen. Freundliches Personal, das sich Mühe bei jedem Kunden gibt."</p>
+        <div class="who"><div class="av">L</div><div><div class="nm">Leon Acan</div><div class="src" data-i18n="rev.src">Google Rezension</div></div></div>
+      </div>
+      <div class="revcard">
+        <span class="st">★★★★★</span>
+        <p>„Sehr gute Arbeit, coole Leute, immer zufrieden bei euch. Weiter so 👌"</p>
+        <div class="who"><div class="av">M</div><div><div class="nm">Mharb Mato</div><div class="src" data-i18n="rev.src">Google Rezension</div></div></div>
+      </div>
+    </div>
+    <div class="rev-cta">
+      <a class="btn btn-gold" href="https://maps.app.goo.gl/Kv73XD3vAFLNX83c9" target="_blank" rel="noopener" data-i18n="rev.cta">★ Alle Bewertungen auf Google lesen</a>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="gallery" style="background:var(--paper2)">
   <div class="wrap">
     <div class="sec-head">
@@ -436,6 +501,7 @@
           <a href="#about" data-i18n="nav.about">Über uns</a>
           <a href="#services" data-i18n="nav.services">Leistungen</a>
           <a href="#work" data-i18n="nav.work">Unsere Arbeit</a>
+          <a href="#reviews" data-i18n="nav.reviews">Bewertungen</a>
           <a href="#gallery" data-i18n="nav.gallery">Galerie</a>
           <a href="#contact" data-i18n="nav.contact">Kontakt</a>
         </div>
@@ -486,6 +552,7 @@ const I18N = {
     "loyal.eyebrow":"Loyalty card","loyal.h3":"Every 10th cut<br>is on us",
     "loyal.p":"Collect a stamp on every visit. After nine cuts, your tenth is <b>free</b> — our thank-you for your loyalty.","stamp.free":"FREE",
     "nav.work":"Our Work","work.eyebrow":"Fresh cuts","work.h2":"Our Work","work.lead":"A few real cuts from the shop. Fades, line-ups and classic styles — this is how we do it.","work.note":"Come by for your look — no appointment, just drop in.",
+    "nav.reviews":"Reviews","rev.eyebrow":"What our clients say","rev.h2":"5.0 stars on Google","rev.count":"188 reviews on Google","rev.src":"Google review","rev.cta":"★ Read all reviews on Google",
     "gallery.eyebrow":"Inside","gallery.h2":"The studio","gallery.lead":"A modern space in the heart of Köln — come and see for yourself.",
     "contact.eyebrow":"Visit us","contact.h2":"Contact & opening hours","contact.addr":"Address",
     "contact.reach":"In the Neustadt · easy by tram, bus & on foot","contact.phone":"Phone / WhatsApp","contact.email":"Email",
@@ -512,6 +579,7 @@ const I18N = {
     "loyal.eyebrow":"بطاقة الولاء","loyal.h3":"كل قصّة عاشرة<br>على حسابنا",
     "loyal.p":"اجمع ختماً في كل زيارة. بعد تسع قصّات، العاشرة <b>مجاناً</b> — شكراً لولائك.","stamp.free":"مجاناً",
     "nav.work":"أعمالنا","work.eyebrow":"قصّات جديدة","work.h2":"أعمالنا","work.lead":"بعض القصّات الحقيقية من الصالون. تدرّجات، تحديد اللحية، وستايلات كلاسيكية — هكذا نعمل.","work.note":"تعال للحصول على إطلالتك — بدون موعد، فقط ادخل.",
+    "nav.reviews":"التقييمات","rev.eyebrow":"ماذا يقول عملاؤنا","rev.h2":"٥٫٠ نجوم على Google","rev.count":"١٨٨ تقييماً على Google","rev.src":"تقييم على Google","rev.cta":"★ اقرأ كل التقييمات على Google",
     "gallery.eyebrow":"لمحات","gallery.h2":"الاستوديو","gallery.lead":"أجواء عصرية في قلب كولونيا — تعال وشاهد بنفسك.",
     "contact.eyebrow":"زُرنا","contact.h2":"التواصل وساعات العمل","contact.addr":"العنوان",
     "contact.reach":"في وسط نويشتات · يسهل الوصول بالترام والحافلة وسيراً","contact.phone":"الهاتف / واتساب","contact.email":"البريد الإلكتروني",
@@ -546,7 +614,7 @@ addEventListener('scroll',function(){
 // scroll-reveal polish
 (function(){
   if(!('IntersectionObserver' in window)) return;
-  var els = document.querySelectorAll('.sec-head,.about .txt,.about .pics img,.feat,.menu-col,.loyal,.gal a,.cinfo,.contact .map,.menu-note');
+  var els = document.querySelectorAll('.sec-head,.about .txt,.about .pics img,.feat,.menu-col,.loyal,.gal a,.revcard,.cinfo,.contact .map,.menu-note');
   els.forEach(function(el){ el.classList.add('reveal'); });
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
